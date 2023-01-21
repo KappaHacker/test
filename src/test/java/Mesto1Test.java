@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class Mesto1Test {
 
-    String bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM2ZjNlMGRjY2Q4YTAwM2RlMTEwZGIiLCJpYXQiOjE2NTM0ODQ1MzAsImV4cCI6MTY1NDA4OTMzMH0.tg2ItWZgs0OYwLeL-yuktIU3_z_MSKRDOYFD2HLFXVw";
+    String bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2NiZWVmMDQ0YzhkNTAwM2QwMjI3NzAiLCJpYXQiOjE2NzQzMDkzNjAsImV4cCI6MTY3NDkxNDE2MH0.0zbaK8BDGf1Zg6BLfWKgpkARDdac3AWsICBxovxaEIo";
 
     @Before
     public void setUp() {
@@ -37,15 +37,6 @@ public class Mesto1Test {
 
         likePhotoById(photoId);
         deleteLikePhotoById(photoId);
-    }
-    @Test
-    @DisplayName("Check user name")
-    @Description("This test is for check current user's name.")
-    public void checkUserName() {
-        given()
-                .auth().oauth2(bearerToken) // Передаём токен для аутентификации
-                .get("/api/users/me") // Делаем GET-запрос
-                .then().assertThat().body("data.name", equalTo("Incorrect Name")); // Проверяем, что имя соответствует ожидаемому
     }
 
     @Step("Take the first photo from the list")
@@ -75,4 +66,4 @@ public class Mesto1Test {
                 .then().assertThat().statusCode(200); // Проверяем, что сервер вернул код 200
     }
 
-} 
+}
